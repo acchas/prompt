@@ -1,141 +1,29 @@
-##Create an app for setting up a new computer for a developer, identifying OS, 
-##creating a folder structure for organizing projects and installing apps. 
-##The app should use tkinker interface
+1.simple tkinker app python class setupApp
+2.add folderstructure to root on current drive: "Projects/Work", "Projects/Private", "Apps", "Program-files"
 
-import os
-import platform
-import subprocess
-import tkinter as tk
-from tkinter import messagebox
+3.function installing windows-apps "Python", "G++", "Git", "VSCode", "SQLite", "Notepad++", "Docker", "Chrome", "CMake", "Arduino" 
 
-class SetupApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Developer Setup App")
-        
-        self.label = tk.Label(root, text="Developer Setup Application", font=("Arial", 16))
-        self.label.pack(pady=10)
-        
-        self.setup_button = tk.Button(root, text="Setup Environment", command=self.setup_environment)
-        self.setup_button.pack(pady=10)
-        
-        self.quit_button = tk.Button(root, text="Quit", command=root.quit)
-        self.quit_button.pack(pady=10)
-    
-    def setup_environment(self):
-        os_name = platform.system()
-        messagebox.showinfo("OS Information", f"Detected OS: {os_name}")
-        
-        self.create_folder_structure()
-        self.install_apps(os_name)
-        
-        messagebox.showinfo("Setup Complete", "Environment setup is complete.")
-    
-    def create_folder_structure(self):
-        folders = ["Projects", "Projects/Python", "Projects/JavaScript", "Projects/Java"]
-        for folder in folders:
-            os.makedirs(os.path.expanduser(f"~/{folder}"), exist_ok=True)
-    
-    def install_apps(self, os_name):
-        if os_name == "Windows":
-            self.install_windows_apps()
-        elif os_name == "Linux":
-            self.install_linux_apps()
-        elif os_name == "Darwin":
-            self.install_mac_apps()
-    
-    def install_windows_apps(self):
-        apps = ["git", "python", "nodejs"]
-        for app in apps:
-            subprocess.run(["choco", "install", app, "-y"])
-    
-    def install_linux_apps(self):
-        apps = ["git", "python3", "nodejs"]
-        subprocess.run(["sudo", "apt-get", "update"])
-        for app in apps:
-            subprocess.run(["sudo", "apt-get", "install", "-y", app])
-    
-    def install_mac_apps(self):
-        apps = ["git", "python", "node"]
-        for app in apps:
-            subprocess.run(["brew", "install", app])
+4.function installing linux-apps:  "Python", "G++", "Git", "VSCode", "SQLite", "Notepad++", "Docker", "Chrome", "CMake", "Arduino" 
+5. function installing mac-apps: "Python", "G++", "Git", "VSCode", "SQLite", "Notepad++", "Docker", "Chrome", "CMake", "Arduino" 
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = SetupApp(root)
-    root.mainloop()
+6. make array of apps to boolean checkboxes: "Python", "G++", "Git", "VSCode", "SQLite", "Notepad++", "Docker", "Chrome", "CMake", "Arduino"
 
+7.add install-button and cancel-button
 
-The folder structure should look like this:
-/Projects
-    /Work
-    /Private
-/Programs
+8. 
+function for installing apps for windows, mapping apps from apps[]
 
+9.
+function for installing apps for linux, mapping apps from apps[] add password for linux-subsytem to send through bash
+10.
+function for installing apps for MAC, mapping apps from apps[]
 
-    def create_folder_structure(self):
-        folders = ["Projects/Work", "Projects/Private", "Programs"]
-        for folder in folders:
-            os.makedirs(os.path.expanduser(f"~/{folder}"), exist_ok=True)
+11.
+funtion identifying OS and calling install_apps
 
+12.
+Add progress bar for installing apps
 
-
-I had to ask for each OS. 
-The apps that should be installed for Linux are: Python, C++-compiler, git, 
-Visual Studio Code, Visual Studio, SQLite, Notepad++, Docker
-
-
-    def install_windows_apps(self):
-        apps = ["python", "cppcompiler", "git", "vscode", "visualstudio2019community", "sqlite", "notepadplusplus", "docker-desktop"]
-        for app in apps:
-            subprocess.run(["choco", "install", app, "-y"])
-        apps = ["git", "python", "nodejs"]
-        for app in apps:
-            subprocess.run(["choco", "install", app, "-y"])
-    
-    def install_linux_apps(self):
-        apps = ["python3", "g++", "git", "code", "sqlite3", "docker.io"]
-        subprocess.run(["sudo", "apt-get", "update"])
-        for app in apps:
-            subprocess.run(["sudo", "apt-get", "install", "-y", app])
-        
-        # Notepad++ is not available directly via apt-get, using snap instead
-        subprocess.run(["sudo", "snap", "install", "notepad-plus-plus", "--classic"])
-        
-        # Visual Studio is not available on Linux, skipping it
-    
-    def install_mac_apps(self):
-        apps = ["python", "gcc", "git", "visual-studio-code", "visual-studio", "sqlite", "notepad-plus-plus", "docker"]
-        for app in apps:
-            subprocess.run(["brew", "install", app])
-
-
-
-    On Setup enviroment create options for downloading apps, so that I can choose 
-        
-        self.label = tk.Label(root, text="Developer Setup Application", font=("Arial", 16))
-        self.label.pack(pady=10)
-        self.apps_var = tk.StringVar(value=["python", "g++", "git", "vscode", "sqlite", "notepadplusplus", "docker"])
-        self.apps_listbox = tk.Listbox(root, listvariable=self.apps_var, selectmode=tk.MULTIPLE, height=10)
-        self.apps_listbox.pack(pady=10)
-        self.setup_button = tk.Button(root, text="Setup Environment", command=self.setup_environment)
-        self.setup_button.pack(pady=10)
-
-
-replace with checklist with boxes pre-checked. 
-        
-((it didn't remove the listbox..))
-        
-        self.check_vars = []
-        
-        for app in self.apps_var:
-            var = tk.BooleanVar(value=True)
-            chk = tk.Checkbutton(root, text=app, variable=var)
-            chk.pack(anchor='w')
-            self.checkbuttons.append(chk)
-            self.check_vars.append(var)
-        self.apps_listbox = tk.Listbox(root, listvariable=self.apps_var, selectmode=tk.MULTIPLE, height=10)
-        self.apps_listbox.pack(pady=10)
-        self.setup_button = tk.Button(root, text="Setup Environment", command=self.setup_environment)
-        self.setup_button.pack(pady=10)
-        
+14.
+In README.md
+Write instructions on how to run main.py
