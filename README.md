@@ -17,16 +17,16 @@ To run the `main.py` script, follow these steps:
     ```
     If Python is not installed, download and install it from [python.org](https://www.python.org/) or run:
 
-    On Windows:
-        ```sh
+    **On Windows:**
+    ```sh
     winget install Python.Python.3
     ```
-    On Linux:
-        ```sh
+    **On Linux:**
+    ```sh
      sudo apt-get install -y python3
     ```
-    On MACOS:
-        ```sh
+    **On MACOS:**
+    ```sh
      brew install python
     ```
 
