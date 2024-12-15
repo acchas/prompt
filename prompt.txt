@@ -24,6 +24,6 @@ funtion identifying OS and calling install_apps
 12.
 Add progress bar for installing apps
 
-13.
-In README.md
-Write instructions on how to run main.py
+13. (Added the commands for installing in terminal manually)
+In README.md:
+"Write instructions on how to run main.py"

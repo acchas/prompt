@@ -1,4 +1,4 @@
-#14.
+#13.
 
 # How to Run `main.py`
 
@@ -15,7 +15,20 @@ To run the `main.py` script, follow these steps:
     ```sh
     python --version
     ```
-    If Python is not installed, download and install it from [python.org](https://www.python.org/).
+    If Python is not installed, download and install it from [python.org](https://www.python.org/) or run:
+
+    *On Windows:*
+        ```sh
+    winget install Python.Python.3
+    ```
+    *On Linux:*
+        ```sh
+     sudo apt-get install -y python3
+    ```
+    *On MACOS:*
+        ```sh
+     brew install python
+    ```
 
 3. **Install Required Dependencies**:
     If your project has dependencies, install them using `pip`. Typically, dependencies are listed in a `requirements.txt` file. Run:
